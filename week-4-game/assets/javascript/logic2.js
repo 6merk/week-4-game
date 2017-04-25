@@ -12,8 +12,17 @@ $(function() {
     var wins = 0;
     var losses = 0;
 
+    var reset = function() {
+        console.log('wooo')
 
-    var crystalRandomNumber = function() {
+        console.log('total: ', total, ' NTR: ', numberToReach)
+      total = 0;
+      numberToReach=Math.floor((Math.random() * 120) + 19);
+      crystalRandomNumber();
+      
+    }
+
+    function crystalRandomNumber() {
         document.querySelector('#score-title').innerHTML = "Number to reach: " + numberToReach;
     };
     crystalRandomNumber();
@@ -25,11 +34,18 @@ $(function() {
 
            if (total == numberToReach) {
             wins++;
-            $('#wins-counter').html(wins + ': congratulations');
+            reset();
+
+            alert("Congratulations");
+    		
+            $('#wins-counter').html('Wins: ' + wins);
         } else if (total > numberToReach) {
             losses++;
-            console.log(losses);
-            $('#losses-counter').html(losses + ': sorry');
+            reset();
+            console.log('total: ', total, ' NTR: ', numberToReach)
+            alert("Try Again");
+            // console.log(losses);
+            $('#losses-counter').html('Losses: ' + losses);
         }
 
 
@@ -41,11 +57,13 @@ $(function() {
 
            if (total == numberToReach) {
             wins++;
-            $('#wins-counter').html(wins + ': congratulations');
+            reset();
+            $('#wins-counter').html('Wins: ' + wins);
         } else if (total > numberToReach) {
             losses++;
+             reset();
             console.log(losses);
-            $('#losses-counter').html(losses + ': sorry');
+            $('#losses-counter').html('Losses: ' + losses);
         }
 
 
@@ -57,11 +75,13 @@ $(function() {
 
            if (total == numberToReach) {
             wins++;
-            $('#wins-counter').html(wins + ': congratulations');
+             reset();
+            $('#wins-counter').html('Wins: ' + wins);
         } else if (total > numberToReach) {
             losses++;
+             reset();
             console.log(losses);
-            $('#losses-counter').html(losses + ': sorry');
+            $('#losses-counter').html('Losses: ' + losses);
         }
 
 
@@ -73,11 +93,13 @@ $(function() {
 
         if (total == numberToReach) {
             wins++;
-            $('#wins-counter').html(wins + ': congratulations');
+             reset();
+            $('#wins-counter').html('Wins: ' + wins);
         } else if (total > numberToReach) {
             losses++;
+             reset();
             console.log(losses);
-            $('#losses-counter').html(losses + ': sorry');
+            $('#losses-counter').html('Losses: ' + losses);
         }
 
 
@@ -86,7 +108,6 @@ $(function() {
 
 
 })
-
 
 
 
